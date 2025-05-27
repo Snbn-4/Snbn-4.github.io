@@ -1,27 +1,72 @@
-const UserData=[
-    {id:1,name:"abdul",gender:"male", age:20, occupation:undefined},
-    {id:2,name:"surendra",gender:"male", age:20, occupation:"Intern"},
-    {id:3,name:"kavi",gender:"male", age:20, occupation:"stremer"},
-    {id:4,name:"sabina",gender:"female", age:18, occupation:undefined},
-    {id:5,name:"rabina",gender:"female", age:19, occupation:"SME"},
-    {id:6,name:"tripal",gender:"male", age:20, occupation:"Intern"},
-    
-]
-const response={
-    status:200,
-    message:"User data fetched successfully",
-    data:UserData
+const Fname="abdul"
+const lname="kawari"
+
+
+const addName=()=>{
+    return `${Fname}  ${lname}`
+}
+// console.log(addName())
+
+const arr1=[-3,-2,-1]
+const arr2=[0,1,2,3]
+
+const addArray=()=>{
+    const result=[...arr1,...arr2]
+    return result
+}
+// console.log(addArray())
+
+const addArrayV2=()=>[...arr1,...arr2]
+// console.log(addArray())
+
+const userData={
+    name:"tripal",
+    email:"tripal123@gmail.com",
+    phn:123,
+    hasPassedOut:false,
+    occupation:undefined
 }
 
-const fetchUserNames=()=>{
-    if(response.status===200)
-        {const result=response.data
-            
-            .map((user)=> user.name)
-            return result
-    }else{
-        const message="Api fetch failed"
-        return message
-    }
+const apiResponse={
+    status:404,
+    message:"not found",
+    data:{}
 }
-console.log(fetchUserNames())
+
+const thisIsFinalUserData={}
+const populateData=()=>{
+
+    if(apiResponse.status===200 && apiResponse.data){
+        thisIsFinalUserData=apiResponse.data
+    }else{
+        thisIsFinalUserData=userData
+    }
+    return thisIsFinalUserData
+}
+console.log(populateData())
+
+
+// const filterFalsyVal=()=>{
+//     let finalUserData={}
+//     for(let key in userData){
+
+//         if(userData[key]){
+//             finalUserData={...finalUserData,[key]:userData[key]}
+//         }
+//     }
+//      return finalUserData
+// }
+// console.log(filterFalsyVal())
+
+
+// const filterlsyVal=()=>{
+//     let finalUserData={}
+//     for(let key in userData){
+
+//         if(!userData[key]){
+//             finalUserData={...finalUserData,[key]:userData[key]}
+//         }
+//     }
+//      return finalUserData
+// }
+// console.log(filterlsyVal())
